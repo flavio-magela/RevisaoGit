@@ -1,0 +1,459 @@
+
+FUNCIONAMENTO DO GIT COM GITHUB
+
+
+===============================================================================================================================================================
+
+
+BASICÃO
+
+Ir ao diretório que vc quer colocar no repositório. Ex.: C:\Users\Flavio Magela\git\StarWarsRepo
+botão direito do mouse e abrir com Git Bash
+- git init - criação de um novo repositório;
+- git init [Nome do arquivo]- criação de um novo repositório;
+
+CONECTAR A CONTA GIT
+- git config --global user.name "flavio-magela"
+- git config --global user.email "flavio.mrsantos@gmail.com"
+
+
+
+
+
+- git init - criação de um novo repositório;
+- git add [nome do arquivo] - adicionar o arquivo na extengearea, para jogar no repositório master do git
+- git commit -m "[nome da alteração realizada]" - commitar / salvar no repositório master do git. ex. git commit -m "Criação do paragrafo h1"
+OBS.: No editor para colocar o nome . Vc pode dar o nome para o arquivo e clicar nas teclas  Crtl + x para salvar o arquivo :wq
+- git status mostra se tem algum aquivo a serem inserido a extengearea / para serem adicionadas - add
+- git diff - Verificar as alterações feita em um arquivo antes da stagedarea (git add)
+- git diff --staged - Apos ser inserido na extengearea (git add) e para ser comitado (com)
+- git fetch origin - Este comando verifica todas as atualizações que foram realizadas no repositório de atalho origin.
+
+Para sair do final do log -p -1 apertar a tecla Q
+
+Vc deu um commit que não era para dar, então vc tinha que acrescentar um alteração antes do commit
+então voce insere o codigo que faltava, dá : git add  e depois: git commit --amend -m "novas funcionalidades (edição)"
+
+=================================================================================================================================================================
+FERRAMENTA GRÁFICA
+
+Visualizado de Relatorio Git - Interface Grafica: gitk ou git-cola
+
+Às vezes, é vantajoso utilizar uma interface visual que te dê as informações de modo mais intuitivo, com gráficos mostrando a progressão do projeto.
+
+Com o Git-Cola, conseguimos ver informações como os arquivos que foram modificados, arquivos com os quais será feito um commit, arquivos que não foram rastreados.
+
+Além disso, você consegue ver o histórico de commits, incluindo nomes dos autores, etc.
+
+O Git-Cola é uma ferramenta completa e você consegue extrair toda informação que é salva em seu repositório.
+
+Porém, para usuários acostumados, é mais prático utilizar a linha de comando, 
+pois o processo de criar commits, branches e sincronizar o repositório fica muito mais ágil.
+
+Outra desvantagem é que alguns comandos importantes da linha de comando não são transferidos para uma interface visual.
+No terminal você consegue mesclar comandos do Git com comandos do próprio sistema para fazer buscas poderosas, pode criar atalhos que automatizam tarefas,
+entre outras coisas não disponíveis na interface gráfica.
+
+Uma alternativa comum é utilizar a interface gráfica para visualizar informações aglomeradas, como um conjunto de commits ou a progressão de criação
+e mescla de branches, mas utilizar a linha de comando para o ciclo básico de trabalho (add -> commit -> pull -> push, etc).
+
+
+===================================================================================================================================================================
+CRIAÇÃO DE TAGs
+
+Criação de TAGs anotada (-a): git tag -a v1.0 -m "versão 1.0" - Obs. Essas TAGs são criado com commit atual do sistema
+Verificar se o sistema exeste TAGs: git tag
+
+Criação de TAG  com commit passada: 1º verificar os commit do sistema: git log --pretty=online - mostrando a chave de referência que 
+é única no Git. 2º após mostrar a chave digitar: git tag -a v0.0 <colar a chave do commit> -m "versão 0.0"
+ex: git tag -a v0.0 14b6ca3e93854e33713e24fef07698c7b7c28553 -m "versão 0.0"
+
+Mostrar a TAG detalhada: git show v0.0 -  mostra data e hora,  a pessoa e email, tamanho do arquivo, qual commit  etc.
+
+=======================================================================================================================================================
+VINCULAR O GIT AO GITHUB
+
+_git push meu-site master - coloca o git master no github (meu-site), faz update.
+_git push -u [https://github.com/flavio-magela/Cerimonial.git] design - o Branch design, ou seja, uma area de trabalho igual a master será atualizada no github (meu-site). 
+
+OBS. sempre tem que colocar  -u assim ele vincula a branch design para o meu-site.
+
+_git pull - faz a atualização do git (minha pagina html, css, js) para o github
+_git branch -r
+  meu-site/design
+  meu-site/master - git branch -r mostra as branch que meu-site possui no meu github
+
+Com isso, você está indicando que o repositório Git local se conecta com um repositório remoto através do alias ou atalho origin cujo endereço real é https://github.com/[seu_usuario_no_github]/curso-git.git.
+Esse comando envia os dados da branch local master para a branch remota master, localizada no repositório origin (ou qualquer outro nome que vc queira).
+git clone [repositorio] copia tudo que existir naquele repositorio para vc;
+s vezes desejamos visualizar mais informações do que o git log nos fornece, como por exemplo quais arquivos foram modificados no commit. Para isso existe o comando git whatchanged. Mas e se quisermos ver 
+também quais as linhas modificadas?. Para isso, basta passar uma opção ao comando git whatchanged para que o Git nos forneça tal informação.git whatchanged -p
+Ao executarmos o comando git whatchanged -p é possível visualizar quais as linhas que foram modificadas em cada commit do nosso projeto. Obs: também é possível utilizarmos git log -p, que imprime também os
+ commits nos quais não houve modificação.
+ Um projeto no Github pode ter diversos colaboradores. Para fazer isso, siga as instruções abaixo:
+
+Abra a página do projeto no Github
+Abra a aba Settings
+Clique na seção Collaborators, à esquerda
+Digite o usuário do colaborador no campo ao lado do botão Add collaborator. Durante a digitação, aparecerão os usuários mais próximos da busca atual.
+
+
+=========================================================================================================================================================
+FUNÇÃO LOG
+
+- git log mostra os commit realizado naquela branch 
+- git log --pretty=oneline - mostra os commit por linha - mais usado
+- git log --pretty=short - mostra os comit sem as datas do commit
+- git log --pretty=full - mostra tudo, mostra o autor do commit e o autor do commit original
+- git log -p - mostra quais arquivos do commit foram alterados
+- git log -p-1 - mostra o commit anterior o ultimo.
+- git log --graph - mostra graficamente as ramificações do repositório.
+========================================================================================================================================================
+FUNÇÃO BRANCH
+
+- git branch    - mostra o repositorio que vc está no momento com * (-r - repositório local) (-a - repositorio local e remoto)
+- git branch -d [nome da branch], este comando remove uma branch, porém somente se ela estiver sincronizada com outra. Senão, é necessário forçar com a opção -D.
+
+Uso do Branch - Trabalhar com várias ramificações, ele permite vc trabalhar com várias ramificações no seu sistema, 
+fazer commit em uma determinada ramificações e esse commit não vai afetar a outra ramificação. Por padrão o Git cria um Branch chamado Master.
+Criação de um Branch Teste: git branch teste
+Entrar ou fazer a troca  no Branch Teste: git checkout teste
+
+[color]
+    branch = auto
+ 
+Incluir esta opção automatiza a coloração do comando git branch. Outra opção é utilizar branch = true.
+
+OUTRO USUARIO TRABALHANDO COM A MESMA BRANCH - EX. DESIGN
+
+O usuario terá que atualisar usando o git pull;
+depois ele vai ter que criar uma nova branch com o mesmo nome, porem usando o branch -t informando que ele quer vincular a nova branch com a meu-site/design
+ex. git branch -t meu-site/design
+
+_realizando o comando git push origin design, criamos a branch remota design no repositório referente ao origin. Porém, ela não está rastreada, isto é,
+ a nossa branch local não sabe qual é a branch remota à qual ela se refere. 
+ Para resolver esse problema, passamos uma opção ao comando anterior. Qual é essa opção? -u
+ 
+ _Qual a opção que passamos ao comando git branch para que sejam listadas somente as branches remotas do nosso repositório? -r
+ _O git nos fornece uma opção ao comando git branch para listar tanto as branches locais quanto as remotas. Qual é essa opção? -a
+ _-b Esta opção cria uma nova branch e já muda para ela automaticamente, mas não cria o link entre a nova branch local e a branch remota.
+ 
+ _Uma sequência de tarefas bem comum referente à cópia de uma branch localizada num repositório remoto é:
+
+Criação de uma branch local com o mesmo nome da branch remota
+Mudança para essa nova branch criada
+Criação de link entre a branch local e remota
+Para evitar toda essa tarefa, o git nos fornece um atalho para evitar esse trabalho todo com uma opção do comando git checkout. Que opção é essa?
+
+-t Com o comando git checkout -t origin/design, todo esse trabalho é feito automaticamente para a branch chamada design.
+==========================================================================================================================================================
+FUNÇÃO CHECkOUT
+
+Troca dos arquivos para mostrar a versão escolhida: git checkout v0.0 ou v1.0 ou 1.2 ou 2.2...
+para voltar o padrão: git checkout master - volta ao normal a versão que está sendo executada.
+Deletar uma TAG: git tag -d v0.0
+OBS: não muito usado para controle de versões - melhor é o Branch
+
+- git checkout  - muda de branch (git checkout desenvolvimento - vai para a branch desenvolvimento), 
+Para evitar toda essa tarefa:
+Criação de uma branch local com o mesmo nome da branch remota;
+Mudança para essa nova branch criada;
+Criação de link entre a branch local e remota . O comando git checkout -t origin/design, todo esse trabalho é feito automaticamente para a branch chamada design
+
+- git checkout -b - já cria e vincula a branch na branch master e no repositorio remoto;
+
+- git checout [nome do arquivo] - volta para o ultimo commit que vc fez. Essa função só funciona antes de vc colocar no extengearea (git add ...). 
+quando vc faz várias alterações e não quer mais usar. ex. git checkout index.html.
+
+OBS. se vc já adicionou no extengearea index.html, vc usa o comando - git reset HEAD index.html - esse comando sai da extengearea e vc da um 
+ex. git checkout index.html - para voltar no ultimo commit sem as mudança que vc fez;
+APOS O COMMIT
+
+Vc fez várias alterações no arquivo e não sabe mais onde essas alterações foram realizada e precisa colocar o arquivo na
+forma que era antes: git checkout -- flavio.txt
+
+Se vc ja comitou o arquivo - commit vc precisa pegar o penultimo identificado do commit que vc quer para voltar para o commite anterior
+ex.commit 274ebd8ba3b191bc05bdb9a20911df6d8b3e52e4
+
+git checkout 274ebd8ba3b191bc05bdb9a20911df6d8b3e52e4 - ele volta para o commit anterior fora da extengearea. Vc faz as modificações, adiciona o arquivo na extengearea
+e comita novamente.
+
+Para isso existe uma notação no comando git checkout, que indica que daqui pra frente só serão listados arquivos
+Digamos que temos as branches design e master (e estamos na master) e o arquivo design que na master contém alterações.
+Para garantir que vamos restaurar o arquivo, precisamos usar o seguinte comando:
+git checkout -- design
+Essa notação de dois hífens -- indica que os parâmetros seguintes serão todos nomes de arquivos, permitindo que restauremos o arquivo design ao estado original.
+
+=============================================================================================================================================
+FUNÇÃO RESET
+
+Para descartamos as alterações do arquivo index.html que estão no extengearea?
+Alternativa correta
+git reset HEAD index.html 
+Retirar um arquivo que vc colocou na stagedarea ( git add .), vc dá: git reset HEAD <nome do arquivo>
+ex: git reset HEAD novo.php
+
+Ao realizarmos o comando git reset HEAD index.html, as alterações no arquivo index.html que estão no index serão revertidas para o working directory.
+OBS. se vc já adicionou no extengearea index.html, vc usa o comando - git reset HEAD index.html - esse comando sai da extengearea e vc da um 
+ex. git checkout index.html - para voltar no ultimo commit sem as mudança que vc fez;
+git reset --hard -Com este comando, as alterações são removidas do histórico local de commits e também tanto do index quanto do working directory, permanentemente.
+git reset -Com este comando, as alterações são removidas do histórico local de commits, do index, mas não doworking directory`.
+git reset --soft - Com este comando, as alterações são removidas do histórico local de commits, mas não são removidas do index.
+
+========================================================================================================================================================================
+RESOLVENDO CONFLITOS NO GIT (DOIS OU MAIS USUÁRIOS TRABALHANDO NO MESMO ARQUIVO)
+
+_Fazer as alterações e preparar o arquivo para commitar  jogar para extengearea- git add [nome do arquivo]
+_Commitar o arquivo, ou seja jogar para o GIT - git commit -m "[nome do que foi arrumado]"
+_Mandar as alterações para o repositorio GITHUB - git push [meu-site] master - [meu-site] nome dado para o repositorio. Poderia ser qualquer outro.
+
+Caso outra pessoa que esteja trabalhando na mesma pagina o Git avisa e tem um conflito. O Git pede para fazer uma correção, porque o repositório Local esta diferente
+do repositório remoto. O outro usuário precisa atualizar o seu repositorio local pra que fique igual ao repositorio remoto com: git pull origin master
+-Ai ele tenta unir as alterações que esta na sua máquina com as alterações que estão remoto - faz um Marge - Merge é quando o próprio GIT conseguiu fazer as duas alterações em um só aquivo.
+OBS.: Quando ele não consegue ele avisa que há CONFLITOS  e ele mostra no arquivos onde há os conflitos com indicações >>>>>> <<<<<<< ====== e vc escolhe qual é mais apropriadas
+deixando apenas a que vc quer que fique no documento e apagando as outras. Da:
+vc tem que fazer um Merge manualmente.  vai no arquivo, corrige, salva e da:
+-git add [nome do arquivo]
+-git commit -m "[nome da alteração]" vc faz um marge manual dos conflitos
+-git push
+
+==============================================================================================================================================================================
+PARA QUE NÃO OCORRA UM MARGE
+
+Vc precisa atualizar o seu branch com git pull para ver as atualizações feitas no master
+Depois vc dá um [git rebase master desenvolvimento] para pegar as alterações que estão na master e jogar para a branch para ser atualizada. Assim nao ocorre a margee
+ex. git rebase master desenvolvimento - rebase jogar os update da branch master para a desenvolvimento] logo após ele mostra as alterações realizadas
+E git log mostra o log das alterações realizadas...
+
+A vc pode voltar para a branch master git checkout master (entrar na branch master)
+e trazer as aterações da branch desenvolvimento para a master - git marge desenvolvimento
+e elevar para o repositório remoto - git push
+
+===================================================================================================================================================================
+
+HAVENDO MAIS DE 1 CONFLITOS
+apos dar um git rebase master desenvolvimento e der um CONFLITOS
+passo a passo vc vai corrigindo os conflitos.
+e dá um - git add [nome da alteração]
+-git rebase --continue  para que ele mostre o próximo CONFLITOS, e assim por diante até não ter mais conflitos. commit a commit, um commit de cada vez.
+Qualquer problema que vc não saiba resorver dê um aborte e começa de novo. git rebase --abort
+
+==============================================================================================================================================================================
+ALTERANDO UM COMMIT QUALQUER DO SEU ARQUIVO
+
+Caso vc precise alterar um commit do seu arquivo, vc precisa usar o comando REVERT. Assim ele altera somente esse commit
+e mantendo os outros commit
+commit c97c04cea45266cc85c380fbcb95fd09a3033613
+Author: Flavio Magela <flavio.mrsantos@gmail.com>
+Date:   Thu Aug 16 14:57:55 2018 -0300
+    Mudando a frase de H2 do Git
+	
+ex.: git revert c97c04cea45266cc85c380fbcb95fd09a3033613 - ele vai te dar uma mensagem do que está sendo alterado e vc pode ate mudar
+o nome da mensagem. ex.  Alterando "Mudando a frase de H2 do Git"
+
+===============================================================================================================================================
+FUNÇÃO CLONE
+- git clone [repositorio] copia tudo que existir naquele repositorio para vc seja de outro desenvolvedor. Clona um repositorio e traz para seu repositorio
+
+=====================================================================================================================================================
+FUNÇÃO WHATCHANGED
+
+- git whatchanged -p é possível visualizar quais as linhas que foram modificadas em cada commit do nosso projeto
+===================================================================================================================================================
+FUNÇÃO PUSH
+
+- git push meu-site master - jogar as alterações do repositorio local(git) para o repositório remoto (github) https://github.com/flavio-magela/meu-site
+- git push -d origin design  OU git push origin :design - Este comando remove a branch remota design.
+
+
+======================================================================================================================================================
+FUNÇÃO PULL
+
+- git pull atualiza o git local para ver se houve alterações / ver as atualizações feitas no master e serem inserida para vc ou sua branch;
+========================================================================================================================================================
+FUNÇÃO REBASE
+
+- git rebase master desenvolvimento - rebase jogar os update da branch master para a branch desenvolvimento] logo após ele mostra as alterações realizadas;
+- -git rebase --continue  para que ele mostre o próximo CONFLITOS, e assim por diante até não ter mais conflitos. commit a commit, um commit de cada vez
+- git rebase --abort - aborta tudo e comoça de novo
+- git rebase --skip - ignora os commit e continua ( não recomendo).
+==================================================================================================================================================
+FUNÇÃO MARGE
+- git marge desenvolvimento -  trás as mudanças feitas da branch desenvolvimento para  a branch master.  
+logo em seguida dar um git push para levar para o repositorio remoto.
+ ou  seja, Fazer um Merge para o ambiente Master  - traz as alterações que você fez no ambiente de teste e levar para o ambiente Produção (Master)
+
+==================================================================================================================================================
+GUARDAR EM UM ARQUIVO TEMPORÁRIO
+Vc usa o comando git stash - vc cria um arquivo temporario antes de adicionar na extengearea - git add
+Para depois vc retomar para verificar se existe uma arquivo temporário vc vai no comando - git stash list - lista os arquivos temporarios
+
+para retomar onde parou vai no comando: git stash apply [nº do meu stash informado pelo stash list] - Usando a opção apply, recuperamos as últimas alterações da pilha sem removê-las.
+
+para remover o arquivo temporário: git stash drop - Este comando faz com que o último estado salvo seja apagado. 
+Também podemos utilizar o nome de cada elemento do stash para remover algum estado que não seja o último.
+Por fim, se quisermos excluir todos os estados, podemos utilizar o comando git stash clear.
+
+Como fazemos para recuperar o último estado salvo com o comando git stash?
+git stash pop - Este comando faz com que o último estado salvo seja recuperado e, caso não haja conflitos, deletado da pilha de dados armazenados.
+============================================================================================================================================
+PROCURAR UM COMMIT BOM E MAL
+O comando git bisect  faz uma busca de um commit que vc quer
+para inicializar a procura - git bisect star
+informar o commit inicial bad - ex. git bisect bad HAD
+informar o commit good - git bisect good [ id do commit] esse commit pode esta no meio do commmit ou não de um ponto ele vai fazendo a busca dalí e vai te dando opções
+de id commit. vc vai na página ex. index.html e verifica se é aquele, caso nao seja vai dando:
+git bisect bad ou
+git bisect good até achar
+no final ele te dá o id commit que vc procura.
+======================================================================================================================================================
+CRIAÇÃO DE ALIAS (ATALHOS / APELIDOS)
+
+Atalhos - Apelidos:
+
+git config --global alias.com commit - em vez de usar sempre o commit - usa o com
+
+git config --global alias.ck checkout - em vez de usar sempre o checkout - usa o ck
+
+git config --global alias.br branch - em vez de usar sempre o branch - usa o br  - aponta para o último commit que você fez
+
+git config --global alias.st status - em vez de usar sempre o status - usa o st
+
+Listar as configurações:
+git config --list - mostra a confiruação da sua lista do git
+            ou
+			
+Para fazer abrir as configuações utiliza o vim ~/.gitconfig  - area que mostra as configurações do seu git
+cria um [alias] enter.
+st = status  - e assim por diante
+Para fazer tudo em um comando apos commitar o arquivo a branch desenvolvimento = usamaos a alias
+
+envia = !git checkout master && git pull && git checkout desenvolvimento && git rebase master && git checkout master && git marge desenvolvimento && git push
+(!OBS.) muda p/ master && atualiza master && muda para branch des && tras as atualiz. da master para a desenv && muda p/ branch desenv. && envia para repositório local
+ 
+ OBS.: A ! permite a criação de um atalho utilizando qualquer comando válido da linha de comando. Com isso, não ficamos presos apenas aos comandos do Git para usar no terminal. 
+ Na verdade, podemos usar qualquer programa que esteja instalado no sistema e tenha um executável na linha de comando.
+ 
+ Criação de alias complexo : 
+ 
+ Como o fluxo do Git por vezes pode ser complexo, principalmente ao trabalhar com branches locais para organizar o desenvolvimento, 
+ é muito comum a criação de atalhos que façam todo o processo de publicação do código, ou seja: pull -> rebase em outra branch -> merge -> push.
+
+Vamos criar um atalho chamado publica que faça todo esse processo de uma só vez para uma branch chamada dev!
+
+[alias]
+        publica = !git checkout master && git pull && git checkout dev && git rebase master && git checkout master && git merge dev && git push
+		
+git publica, todo o processo abaixo será feito, em ordem, e interrompido caso o anterior falhe:
+
+git checkout master: altera o local de trabalho para a branch master
+git pull: atualiza o histórico da branch master
+git checkout dev: altera o local de trabalho para a branch dev
+git rebase master: atualiza o HEAD da branch dev para receber as alterações da branch master
+git checkout master: altera o local de trabalho novamente para a branch master
+git merge dev: mescla as alterações da branch dev na master
+git push: envia suas alterações para o repositório remoto - GITHUB
+
+ 
+====================================================================================================================================================
+COPIA DE UM PROJETO DE OUTRO USUÁRIO USANDO O GITHUB - USUARIO A (SUA CONTA) / USUARIO B
+
+Vc loga na sua conta, vai no repositório do usuario B e clica no icone = FORK, ele cria uma copia do projeto no repositorio do usuario A no GITHUB.
+
+E vc pode clonar o projeto usuando o SSH Clone URL do GITHUB para trazer o projeto para vc no sue GIT:   - git clone [repositorio]
+git clone https://github.com/flavio-magela/meu-site  - como o projeto fosse seu...
+Ai o usuário A pode trabalhar e fazer as alterações necessárias... dar um add , o commit e git push para atulizar no repositorio que ela pegou....
+
+OBS. Para isso, existe também a função WATCH no Github, que te permite seguir um repositório e acompanhar seu progresso.
+Ao ativar o WATCH, o Github te notifica a cada atividade que ocorre no repositório, te permitindo acompanhar praticamente em tempo real o andamento do projeto.
+
+
+UPDATE/ENVIAR AS ALTERAÇÕES DO USUARIO A PARA USUARIO B VIA GITHUB
+
+O usuario B precisa aceitar as alterações do usuario A no seu projeto  que foi clonado pelo usurairo A.
+O usuario A precisa avisar ao usuario B que o ela(A) tem uma alteração para ele(B) através do recurso PULL REQUEST no projeto que usuario A clonou...
+Onde tem uma alteração do usuario A na frente do usuario B, vc clica no PULL REQUEST (Avisar o usuario B dessa alteração). Esse PULL REQUEST te das as opções 
+de enviar um email/ aviso informando as alterações realizada, as diferenças do repositorio do usuario A e do usuario B e dá a opção de criar o PULL REQUEST (colocar o titulo,
+do pull request e a mensagem informando o que foi alterado).
+Ele entra no seu usuario B analisa o PULL REQUEST e aceita ou naõ e confirma Merge. A partir dai vai ter o Marge do usuario B e do usuario A.
+
+FAZER TUDO PELO GIT E MANTER O REPOSITORIO ATUALIZADO DO USUARIO A COM O USUARIO B
+
+O usuario A precisa ter o seu repositorio atualizado  - git remote meu-repositorioA,
+E ter o repositorio do usuario B,  vc clona o repositório do usuario B - Pegar uma copia do projeto do usuario B e trazer para o usuario A,
+usa o comando  - git romote add usuarioB [repositorio  -URL].  ex. git romote add usuarioB https://github.com/usuarioB/meu-site
+e depois usa o comando: git pull usuarioB master - Ele traz/atualiza o repositorio do usuario B para o seu repositório(branch) master - o git log vc faz a verificação se ele
+importou os commit para o usuario A. Dessa forma vc pode fazer a alteração sem problema.  Ai vc pode dar o git push  meu-repositorioA master  - para o seu próprio repositorio (meu-repositorioA).
+
+UPDATE/EVIAR  COMMIT DO USUARIO_A PARA O USUARIO_B VIA GIT
+
+ele apenas commitou no seu repositorio (meu-repositorioA) e quer passar para o usuario B as alterações feita pelo (A) sem ser pela interface do GITHUB.
+Antes usuario A envia um email para usuario B com todas as informações do usuario A (descrevendo as alterações, juntamento com sua url do repositorio de A)
+ex. no usuario B  -  pegar a URL do repositorio do usuario A -  git remote add usuarioA https://github.com/usuarioA/meu-site
+entra no projeto do usuario A - cd meu-site
+pega esse email com a url do projeto para colocar no repositorio do usuario B
+pega essa url coloca como repositorio remote para o usuario B  - git remote add usuarioA https://github.com/usuarioA/meu-site - usuario B cria um branch (repositorio ) com o nome usuarioA 
+E trazer as alterações do usurario A para usuario B. Atravez do comando: git fetch usuarioA
+ele vai trazer os commit do usuario A e mostra as diferença de um para o outro usuario...
+o comando:
+git diff usuarioA/master - compara os commit do usuaria A com o a master (usuario B) - as diferenças / alterações de um com o outro
+vc traz as alterações da master com o comando: git pull
+repede o comando: git diff usuarioA/master - para ver se as alterações
+e faz um marge para atualizar  - git marge usuarioA/master  - para trazer as alterações do usuario A para o repositorio do usuarioA do seu master
+git log - mostra as alterações trazida do usuario A.
+e usar o comando para jogar no seu repositorio usuario B  no  GITHUB através do comando: git push
+ FIM
+
+========================================================================================================================================================================================================
+ADICIONADO ALGUMAS ATERAÇÕES DA MINHA BRANCH DESENVOLVIMENTO PARA MINHA BRANCH MASTER - comando CHERRY-PICK
+
+Essa opção é caso eu esteja fazendo algumas alterações na minha branch desenvolvimento e queira jogar apenas parte dessa alteração para minha branch Master e não todos as aterações
+que nessa branch desenvolvimento tenha.
+Eu apenas pego apenas o codigo (id) do meu commit que eu quero atualizar na minha branch MASTER
+volta para branch master (git checkout master) e digito o comando. 
+- git cherry-pick [id commit] -  que vc queira atualizar
+ex. git cherry-pick a0e5b6c
+vai no git log - vc poderá ver que somente o commit que vc solicitou foi acrescentado. e a branch desenvolvimento estará intactar para vc continuar as modificações necessárias.
+
+OBS. Quando acontece algum CONFLITOS vc precisa escolher no arquivo html, css... 
+qual alteração vc vai salvar e logo em seguida adicionar na extengearea (git add) e commitar (git commit -m [nome da alteração])
+assim ele vai salvar o commit que vc quer alterar (isso na branch master).
+
+(na branch desenvolvimento) Pode ser que no branch desenvolvimento esteja tb com comflito na hora de vc atualizar com a master. 
+Dê um: git rebase master desenvolvimento - atualizar a branch desenvolvimento com referencia da master - caso tenha um conflito
+vai no arquivo corriga e depois salva na extengearea (git add [nome do arquivo])
+e continue o comando rebase: git rebase --continue (repita até não ter mais conflitos) ou seja,
+vai corrigido e adicionando na extengearea e dando git rebase --continue até não ter mais conflitos
+
+Perigos do Cherry Pick
+
+Com cherry-pick, temos a liberdade de escolher quais commits queremos trazer para a nossa branch. Mas veja que isso pode ser perigoso:
+às vezes, trazer um commit isolado, sem os commits ao redor, pode gerar problemas de merge ou até mesmo problemas no código.
+
+Os problemas de merge gerados pelo cherry-pick são resolvidos de maneira semelhante ao git merge e git rebase.
+Você deve abrir os arquivos com conflito, fazer as mudanças necessárias no código (eles também estão demarcados com >>>>) e, em seguida, adicionar (git add) os arquivos com conflito e commitar (git commit).
+
+Ao executar o cherry-pick, o commit escolhido é copiado. Contudo, existe uma opção que permite não gerar este commit, fazendo com que as alterações sejam adicionadas ao index
+-n - A opção -n ou --no-commit permite que recuperemos as alterações de um dado commit sem precisar inseri-lo no histórico local.
+
+Muitas vezes queremos passar um conjunto sequencial (range) de commits para o comando git cherry-pick. Como isso é feito? Se precisar, 
+use o comando git help gitrevisions para encontrar a resposta.
+Imagine que o commit inicial tenha a hash abcd e o commit final tenha a hash 1234
+
+git cherry-pick abcd..1234
+ 
+Para pegar todos os commits dentro de um intervalo, devemos escrever o hash do commit mais antigo seguido por dois pontos sem espaço
+ e seguido pelo hash do commit mais recente. Cuidado, é importante não haver espaços e que sejam exatamente dois pontos!
+ 
+ OBS.: Boa recomendações: o Cherry Pick é bom usar apenas para commit curtos/pequenos.
+ O cherry-pick dificilmente será usado quando as alterações todas ficam aglomeradas em um grande commit.
+======================================================================================================================================================================================================
+
+
+
+
+
+
+ 
+
+ 
