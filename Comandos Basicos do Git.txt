@@ -16,10 +16,11 @@ CONECTAR A CONTA GIT
 - git config --global user.name "flavio-magela"
 - git config --global user.email "flavio.mrsantos@gmail.com"
 
+SAIR DO DIRETORIO DE UM GIT 
+- Digitar: cd .. (cd [espaços] ..)
+- Entrar no diretorio (master) - cd StarWarsRepo
 
-
-
-
+COMANDOS: 
 - git init - criação de um novo repositório;
 - git add [nome do arquivo] - adicionar o arquivo na extengearea, para jogar no repositório master do git - OBS. Git add .  - adciona tudo que não foi adicionado ainda.
 - git commit -m "[nome da alteração realizada]" - commitar / salvar no repositório master do git. ex. git commit -m "Criação do paragrafo h1"
