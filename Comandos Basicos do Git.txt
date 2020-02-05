@@ -16,9 +16,10 @@ CONECTAR A CONTA GIT
 - git config --global user.name "flavio-magela"
 - git config --global user.email "flavio.mrsantos@gmail.com"
 
-SAIR DO DIRETORIO DE UM GIT 
-- Digitar: cd .. (cd [espaços] ..)
+DIRETORIO DE UM GIT 
+- Digitar: cd .. (cd [espaços] ..) - sair de um diretorio
 - Entrar no diretorio (master) - cd StarWarsRepo
+- Alterar um diretório - mv StarWarsRepo StarWarsRepo_01
 
 COMANDOS: 
 - git init - criação de um novo repositório;
