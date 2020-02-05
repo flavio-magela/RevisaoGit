@@ -27,6 +27,7 @@ OBS.: No editor para colocar o nome . Vc pode dar o nome para o arquivo e clicar
 - git status mostra se tem algum aquivo a serem inserido a extengearea / para serem adicionadas - add
 - git diff - Verificar as alterações feita em um arquivo antes da stagedarea (git add)
 - git diff --staged - Apos ser inserido na extengearea (git add) e para ser comitado (com)
+- git diff HEAD~1 - Mostra as diferenças / modificações em cada arquivo - do anterior ao último commit da branch - OBS.: ~2 quantidade de versões anteriores
 - git fetch origin - Este comando verifica todas as atualizações que foram realizadas no repositório de atalho origin.
 
 Para sair do final do log -p -1 apertar a tecla Q
@@ -108,7 +109,7 @@ FUNÇÃO LOG
 - git log -p - mostra quais arquivos do commit foram alterados
 - git log -p-1 - mostra o commit anterior o ultimo.
 - git log --graph - mostra graficamente as ramificações do repositório.
-- git diff HEAD~1 - Mostra as diferenças / modificações em cada arquivo - do anterior ao último commit da branch - OBS.: ~2 quantidade de versões anteriores
+
 
 
 ========================================================================================================================================================
