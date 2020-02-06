@@ -304,7 +304,6 @@ No GitHub vc tbm precisa inserir
 git push <remote> <tag>
 git push origin v1.0
 
-
 ===================================================================================================================================================================
 
 HAVENDO MAIS DE 1 CONFLITOS
@@ -558,7 +557,19 @@ os arquivos que precisa estar juntos, escreve as mensagem, vc tbm pode ver em ca
 - Vc pode escrever a mensagem, verificar os diff, dar só o commit ou commitar e dar o push ao mesmo tempo
 
 
+============================================================================================
+GITHUB
 
+FORK NO GITHUB - Copia um repositório de outro usuário para o seu usuário no GitHub
+É assim que começa a contribuição para outros projetos.
+Vc teria uma cópia independente do repositório original, podendo fazer quaisquer alterações
+
+ISSUES NO GITHUB - Tradução: Questões
+Reportar bugs. 
+Organizar tarefas a serem feitas
+Permitir discussão entre os usuários
+Pode ser referenciado por commits
+ - Commit: "Closes#3"
 
 
  
