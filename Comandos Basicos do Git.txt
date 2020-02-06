@@ -291,6 +291,21 @@ e trazer as aterações da branch desenvolvimento para a master - git marge desenv
 e elevar para o repositório remoto - git push
 
 ===================================================================================================================================================================
+FUNÇÃO TAG
+ - Últil para fefinir versões estáveis do projeto.
+ Semelhantes a Branch porém não recebe mais commits
+
+ Guarda um estado do depositório.
+
+- git tag [nome da teg]
+git tag v1.0
+
+No GitHub vc tbm precisa inserir
+git push <remote> <tag>
+git push origin v1.0
+
+
+===================================================================================================================================================================
 
 HAVENDO MAIS DE 1 CONFLITOS
 apos dar um git rebase master desenvolvimento e der um CONFLITOS
@@ -334,15 +349,40 @@ FUNÇÃO PULL
 ========================================================================================================================================================
 FUNÇÃO REBASE
 
+- git rebase <branch> - git rebase master ou git rebase slaverStarWars
+
+Corrigi no arquivo os conflitos  E depois usar o:
+ -git rebase --continue    caso tenha conflitos
+
+Semelhante ao Merge porém é diferente na ordem de aplicar o commites
+No Rebase, os seus commits na frente da base são removidos temporariamente, os commits de outra branch são aplicados na sua branch e por fim seus commits
+são aplicados um a um. Pode acontecer conflitos que serão resolvidos para cada commit
+
 - git rebase master desenvolvimento - rebase jogar os update da branch master para a branch desenvolvimento] logo após ele mostra as alterações realizadas;
+
 - -git rebase --continue  para que ele mostre o próximo CONFLITOS, e assim por diante até não ter mais conflitos. commit a commit, um commit de cada vez
 - git rebase --abort - aborta tudo e comoça de novo
 - git rebase --skip - ignora os commit e continua ( não recomendo).
 ==================================================================================================================================================
 FUNÇÃO MARGE
+
 - git marge desenvolvimento -  trás as mudanças feitas da branch desenvolvimento para  a branch master.  
 logo em seguida dar um git push para levar para o repositorio remoto.
  ou  seja, Fazer um Merge para o ambiente Master  - traz as alterações que você fez no ambiente de teste e levar para o ambiente Produção (Master)
+
+
+=======================================================================================================================================================
+FUNÇÃO FETCH - atualiza o repositorio mesmo depois de ter dado o commit
+
+- git fetch
+Baixa as atualizações do remote porém não aplica elas no repositório
+Permite fazer o rebase de uma branch em vez de fazer o marge
+
+- Pull = Fetch + Marge
+
+Fetch e Rebase é melhor para manter histórico do desenvolvimento.
+
+
 
 ==================================================================================================================================================
 GUARDAR EM UM ARQUIVO TEMPORÁRIO
