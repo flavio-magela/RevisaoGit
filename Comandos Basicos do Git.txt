@@ -16,9 +16,10 @@ CONECTAR A CONTA GIT
 - git config --global user.name "flavio-magela"
 - git config --global user.email "flavio.mrsantos@gmail.com"
 
-DIRETORIOs DE UM GIT 
+DIRETORIOS DE UM GIT 
 - Digitar: cd .. (cd [espaços] ..) - sair de um diretorio
 - Entrar no diretorio (master) - cd StarWarsRepo
+- Remover um arquivo do projeto - rm .project
 - Alterar um diretório - mv StarWarsRepo StarWarsRepo_01
 - comando - cat - Mostrar o que está dentro do arquivo  - utiliza cat <nome do arquivo>
 ex. cat planeta
@@ -130,7 +131,10 @@ FUNÇÃO BRANCH
 Uso do Branch - Trabalhar com várias ramificações, ele permite vc trabalhar com várias ramificações no seu sistema, 
 fazer commit em uma determinada ramificações e esse commit não vai afetar a outra ramificação. Por padrão o Git cria um Branch chamado Master.
 Criação de um Branch Teste: git branch teste
-Entrar ou fazer a troca  no Branch Teste: git checkout teste
+
+COMO MUDAR PARA A BRANCH CRIADA:
+- Entrar ou fazer a troca  no Branch Teste: git checkout teste
+Seu repositório passa a ter os commits que a branch possui e novos commits serão adicionados à ela.
 
 [color]
     branch = auto
