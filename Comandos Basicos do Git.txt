@@ -131,7 +131,9 @@ FUNÇÃO BRANCH
 Uso do Branch - Trabalhar com várias ramificações, ele permite vc trabalhar com várias ramificações no seu sistema, 
 fazer commit em uma determinada ramificações e esse commit não vai afetar a outra ramificação. Por padrão o Git cria um Branch chamado Master.
 Criação de um Branch Teste: git branch teste
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 COMO MUDAR PARA A BRANCH CRIADA:
 - Entrar ou fazer a troca  no Branch Teste: git checkout teste
 Seu repositório passa a ter os commits que a branch possui e novos commits serão adicionados à ela.
@@ -144,6 +146,7 @@ Após criar a nova branch ele poderá fazer upload das atualizações.
 ERRO NA CRIAÇÃO
 - Caso dê algum erro, inserir o seguinte comendo: $ git push --set-upstream origin slaverStarWars
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 [color]
     branch = auto
  
