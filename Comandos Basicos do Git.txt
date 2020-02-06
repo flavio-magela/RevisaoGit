@@ -494,7 +494,13 @@ Para pegar todos os commits dentro de um intervalo, devemos escrever o hash do c
  OBS.: Boa recomendações: o Cherry Pick é bom usar apenas para commit curtos/pequenos.
  O cherry-pick dificilmente será usado quando as alterações todas ficam aglomeradas em um grande commit.
 ======================================================================================================================================================================================================
+USO DA INTERFACE GRÁFICA - GITEYE
 
+- Muito útil para analisar/navegar os historicos com suas branch, as mudanças realizada em cada arquivo - ir na aba Git Files.
+- Fazer as alterações no arquivo ou no código e verificar no Giteye
+- Muito útil quando vc tem vários arquivos que precisam dar o commit e vc precisa separa-los, ou seja, não dar o commit em todos eles, somente em alguns... Vc seleciona
+os arquivos que precisa estar juntos, escreve as mensagem, vc tbm pode ver em cada arquivo o que foi mudado na tela a direita a baixo do monitor - com o diff
+- Vc pode escrever a mensagem, verificar os diff, dar só o commit ou commitar e dar o push ao mesmo tempo
 
 
 
