@@ -16,10 +16,15 @@ CONECTAR A CONTA GIT
 - git config --global user.name "flavio-magela"
 - git config --global user.email "flavio.mrsantos@gmail.com"
 
-DIRETORIO DE UM GIT 
+DIRETORIOs DE UM GIT 
 - Digitar: cd .. (cd [espaços] ..) - sair de um diretorio
 - Entrar no diretorio (master) - cd StarWarsRepo
 - Alterar um diretório - mv StarWarsRepo StarWarsRepo_01
+- comando - cat - Mostrar o que está dentro do arquivo  - utiliza cat <nome do arquivo>
+ex. cat planeta
+Alderaan
+Coruscan
+Endor
 
 COMANDOS: 
 - git init - criação de um novo repositório;
@@ -76,12 +81,14 @@ Mostrar a TAG detalhada: git show v0.0 -  mostra data e hora,  a pessoa e email,
 =======================================================================================================================================================
 VINCULAR O GIT AO GITHUB
 
-_git push meu-site master - coloca o git master no github (meu-site), faz update.
+_git push meu-site master - coloca o git master no github (meu-site), faz update. Ou seja baixa as alterações do repositório remoto. OBS. Muito importante atualizar 
+as modificações dos outros analista que estão trabalhando no mesmo projeto.
 _git push -u [https://github.com/flavio-magela/Cerimonial.git] design - o Branch design, ou seja, uma area de trabalho igual a master será atualizada no github (meu-site). 
 
 OBS. sempre tem que colocar  -u assim ele vincula a branch design para o meu-site.
 
-_git pull - faz a atualização do git (minha pagina html, css, js) para o github
+_git pull - faz a atualização do git (minha pagina html, css, js) para o github - mantem o repositório sincronizado com os últimos commits de uma branch
+
 _git branch -r
   meu-site/design
   meu-site/master - git branch -r mostra as branch que meu-site possui no meu github
@@ -155,11 +162,25 @@ Para evitar toda essa tarefa, o git nos fornece um atalho para evitar esse traba
 ==========================================================================================================================================================
 FUNÇÃO CHECkOUT
 
-Troca dos arquivos para mostrar a versão escolhida: git checkout v0.0 ou v1.0 ou 1.2 ou 2.2...
-para voltar o padrão: git checkout master - volta ao normal a versão que está sendo executada.
+Permite ver como um arquivo ou todo o repositório estava em um determinado commit.
+Troca dos arquivos para mostrar a versão escolhida: git checkout v0.0 ou v1.0 ou 1.2 ou 2.2... 
+OU parte do commit log - ex 02ed245f (vai no arquivo e vai mostrar as alterações...
+OBS. Ótimo para verificar Bugs... e fazer os testes
+
+Para voltar o padrão - ùltimo comite: git checkout master - volta ao normal a versão que está sendo executada.
 Deletar uma TAG: git tag -d v0.0
 OBS: não muito usado para controle de versões - melhor é o Branch
+=============================================================================================================================================================
+DESFAZER UMA ALTERAÇÃO NO GIT CHECKOUT
 
+Desfazer uma alteração que vc alterou em uma versão anterior e viu que é desnecessária
+git checkout -- <nome do arquivo> 
+ex.: git checkout -- personagens
+
+OBS. Se vc já deu o comando git add .. , ou seja, jogou para extegeárea... Desfaz as alterações desde o último commit incluindo o Stage
+usar o git checkout HEAD -- <Nome do Arquivo> para desfazer
+ex.: git checkout HEAD -- personagens
+===========================================================================================================================================================
 - git checkout  - muda de branch (git checkout desenvolvimento - vai para a branch desenvolvimento), 
 Para evitar toda essa tarefa:
 Criação de uma branch local com o mesmo nome da branch remota;
@@ -193,6 +214,14 @@ Essa notação de dois hífens -- indica que os parâmetros seguintes serão todos no
 =============================================================================================================================================
 FUNÇÃO RESET
 
+Resetar o repositório para um determinado commit. git reset -- hard<commit>
+Resetar e remover todas as alterações.
+ OBS.: Cuidado ao usar! Não usar se ja estiver publicado (mandou para o GitHub -  outras pessoas pode já ter pegado e utilizado o código), 
+caso contrário utilizar o git revert. Desde que vc não tenha utilizado o git push nele...
+Ultil para desfazer últimos commits
+ex.: git reset HEAD~1 - Volta 1 commit
+ex.: git reset HEAD~2 - Volta 2 commit
+
 Para descartamos as alterações do arquivo index.html que estão no extengearea?
 Alternativa correta
 git reset HEAD index.html 
@@ -202,12 +231,22 @@ ex: git reset HEAD novo.php
 Ao realizarmos o comando git reset HEAD index.html, as alterações no arquivo index.html que estão no index serão revertidas para o working directory.
 OBS. se vc já adicionou no extengearea index.html, vc usa o comando - git reset HEAD index.html - esse comando sai da extengearea e vc da um 
 ex. git checkout index.html - para voltar no ultimo commit sem as mudança que vc fez;
+git reset HEAD~1 --hard - volta 1 commit e apaga do histõrico, do index e do working directory.
 git reset --hard -Com este comando, as alterações são removidas do histórico local de commits e também tanto do index quanto do working directory, permanentemente.
-git reset -Com este comando, as alterações são removidas do histórico local de commits, do index, mas não doworking directory`.
-git reset --soft - Com este comando, as alterações são removidas do histórico local de commits, mas não são removidas do index.
+git reset -Com este comando, as alterações são removidas do histórico local de commits, do index, mas não do working directory`.
+git reset HEAD~1 -- soft - volta 1 commit e apaga do histõrico,  mas não são removidas do index. Ou seja, Deixa como está
+git reset --soft - Com este comando, as alterações são removidas do histórico local de commits, mas não são removidas do index. Ou seja, Deixa como está
+
+==========================================================================================================================================================
+FUNÇÃO REVERT
+- git revert <commit>  - Irá criar um novo commit que desfaz as alterações do commit especimicado -  Ultil para fesfazer um commit antigo
+ex. git revert 2rg0147w - copia o código do commit atualizado atualmente pelo git log e ele reverte as alterações
+Ou seja, o revert cria um outro commit desfazendo o commit anterior -  colocando no texto o "Revert <texto anterior>"
 
 ========================================================================================================================================================================
 RESOLVENDO CONFLITOS NO GIT (DOIS OU MAIS USUÁRIOS TRABALHANDO NO MESMO ARQUIVO)
+
+- Conflitos podem acontecer ao unirmos alterações. Acontecem quando versões diferentes possuem as mesmas linhas nos mesmos arquivos editadas diferentes.
 
 _Fazer as alterações e preparar o arquivo para commitar  jogar para extengearea- git add [nome do arquivo]
 _Commitar o arquivo, ou seja jogar para o GIT - git commit -m "[nome do que foi arrumado]"
@@ -216,11 +255,12 @@ _Mandar as alterações para o repositorio GITHUB - git push [meu-site] master - [
 Caso outra pessoa que esteja trabalhando na mesma pagina o Git avisa e tem um conflito. O Git pede para fazer uma correção, porque o repositório Local esta diferente
 do repositório remoto. O outro usuário precisa atualizar o seu repositorio local pra que fique igual ao repositorio remoto com: git pull origin master
 -Ai ele tenta unir as alterações que esta na sua máquina com as alterações que estão remoto - faz um Marge - Merge é quando o próprio GIT conseguiu fazer as duas alterações em um só aquivo.
+
 OBS.: Quando ele não consegue ele avisa que há CONFLITOS  e ele mostra no arquivos onde há os conflitos com indicações >>>>>> <<<<<<< ====== e vc escolhe qual é mais apropriadas
 deixando apenas a que vc quer que fique no documento e apagando as outras. Da:
-vc tem que fazer um Merge manualmente.  vai no arquivo, corrige, salva e da:
+vc tem que fazer um Merge manualmente.  VC TERÁ QUE IR NO ARQUIVO ONDE TEVE AS ATERAÇÕES E CORRIGIR MANUALMENTE E DEPOIS FAZER OS PROCEDIMENTOS:
 -git add [nome do arquivo]
--git commit -m "[nome da alteração]" vc faz um marge manual dos conflitos
+-git commit -m "[nome daS alteraçÕES]" vc faz um marge manual dos conflitos
 -git push
 
 ==============================================================================================================================================================================
